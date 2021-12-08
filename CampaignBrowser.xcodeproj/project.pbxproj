@@ -20,11 +20,19 @@
 		23F7B5DC1F59A70E00154DD9 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F7B5D91F59A70E00154DD9 /* ServiceLocator.swift */; };
 		23F7B5DE1F59A71B00154DD9 /* CampaignData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F7B5DD1F59A71B00154DD9 /* CampaignData.swift */; };
 		23F7B5E01F59A73000154DD9 /* CampaignListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F7B5DF1F59A73000154DD9 /* CampaignListingView.swift */; };
+		2B3ACB682761332300284DD7 /* CampaignBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3ACB672761332300284DD7 /* CampaignBrowserTests.swift */; };
 		B8B5F1F166845F0ECFBB5E7F /* Pods_CampaignBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE6F773D7D1702E9482B13D /* Pods_CampaignBrowser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		23F7B5AB1F5958F400154DD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23F7B58E1F5958F300154DD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23F7B5951F5958F300154DD9;
+			remoteInfo = CampaignBrowser;
+		};
+		2B3ACB6A2761332300284DD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 23F7B58E1F5958F300154DD9 /* Project object */;
 			proxyType = 1;
@@ -53,6 +61,9 @@
 		23F7B5DD1F59A71B00154DD9 /* CampaignData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignData.swift; path = Models/CampaignData.swift; sourceTree = "<group>"; };
 		23F7B5DF1F59A73000154DD9 /* CampaignListingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CampaignListingView.swift; path = Screens/CampaignsListing/CampaignListingView.swift; sourceTree = "<group>"; };
 		23F7B5E11F59A76A00154DD9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2B3ACB652761332300284DD7 /* CampaignBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CampaignBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B3ACB672761332300284DD7 /* CampaignBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignBrowserTests.swift; sourceTree = "<group>"; };
+		2B3ACB692761332300284DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47520166195A4003183C8D8A /* Pods-CampaignBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CampaignBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-CampaignBrowser/Pods-CampaignBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		6EE6F773D7D1702E9482B13D /* Pods_CampaignBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CampaignBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFF862F2521D154547AA0BBB /* Pods-CampaignBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CampaignBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CampaignBrowser/Pods-CampaignBrowser.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +85,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B3ACB622761332300284DD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +102,7 @@
 				23F7B5C91F597B7700154DD9 /* Podfile */,
 				23F7B5981F5958F300154DD9 /* CampaignBrowser */,
 				23F7B5AD1F5958F400154DD9 /* CampaignBrowserUITests */,
+				2B3ACB662761332300284DD7 /* CampaignBrowserTests */,
 				23F7B5971F5958F300154DD9 /* Products */,
 				92F3CB1E7C971469A2B28776 /* Pods */,
 				3AB6449F1A7DCBF82BA822FD /* Frameworks */,
@@ -95,6 +114,7 @@
 			children = (
 				23F7B5961F5958F300154DD9 /* CampaignBrowser.app */,
 				23F7B5AA1F5958F400154DD9 /* CampaignBrowserUITests.xctest */,
+				2B3ACB652761332300284DD7 /* CampaignBrowserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +196,15 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		2B3ACB662761332300284DD7 /* CampaignBrowserTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B3ACB672761332300284DD7 /* CampaignBrowserTests.swift */,
+				2B3ACB692761332300284DD7 /* Info.plist */,
+			);
+			path = CampaignBrowserTests;
+			sourceTree = "<group>";
+		};
 		3AB6449F1A7DCBF82BA822FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,13 +262,31 @@
 			productReference = 23F7B5AA1F5958F400154DD9 /* CampaignBrowserUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		2B3ACB642761332300284DD7 /* CampaignBrowserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B3ACB6E2761332300284DD7 /* Build configuration list for PBXNativeTarget "CampaignBrowserTests" */;
+			buildPhases = (
+				2B3ACB612761332300284DD7 /* Sources */,
+				2B3ACB622761332300284DD7 /* Frameworks */,
+				2B3ACB632761332300284DD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B3ACB6B2761332300284DD7 /* PBXTargetDependency */,
+			);
+			name = CampaignBrowserTests;
+			productName = CampaignBrowserTests;
+			productReference = 2B3ACB652761332300284DD7 /* CampaignBrowserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		23F7B58E1F5958F300154DD9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Westwing GmbH";
 				TargetAttributes = {
@@ -252,6 +299,11 @@
 					23F7B5A91F5958F400154DD9 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = Y2NQ6FJX24;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 23F7B5951F5958F300154DD9;
+					};
+					2B3ACB642761332300284DD7 = {
+						CreatedOnToolsVersion = 12.4;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 23F7B5951F5958F300154DD9;
 					};
@@ -273,6 +325,7 @@
 			targets = (
 				23F7B5951F5958F300154DD9 /* CampaignBrowser */,
 				23F7B5A91F5958F400154DD9 /* CampaignBrowserUITests */,
+				2B3ACB642761332300284DD7 /* CampaignBrowserTests */,
 			);
 		};
 /* End PBXProject section */
@@ -289,6 +342,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		23F7B5A81F5958F400154DD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3ACB632761332300284DD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -367,6 +427,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2B3ACB612761332300284DD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B3ACB682761332300284DD7 /* CampaignBrowserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -374,6 +442,11 @@
 			isa = PBXTargetDependency;
 			target = 23F7B5951F5958F300154DD9 /* CampaignBrowser */;
 			targetProxy = 23F7B5AB1F5958F400154DD9 /* PBXContainerItemProxy */;
+		};
+		2B3ACB6B2761332300284DD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23F7B5951F5958F300154DD9 /* CampaignBrowser */;
+			targetProxy = 2B3ACB6A2761332300284DD7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -568,6 +641,49 @@
 			};
 			name = Release;
 		};
+		2B3ACB6C2761332300284DD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CampaignBrowserTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = de.westwingnow.CampaignBrowserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CampaignBrowser.app/CampaignBrowser";
+			};
+			name = Debug;
+		};
+		2B3ACB6D2761332300284DD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CampaignBrowserTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = de.westwingnow.CampaignBrowserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CampaignBrowser.app/CampaignBrowser";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -594,6 +710,15 @@
 			buildConfigurations = (
 				23F7B5B71F5958F400154DD9 /* Debug */,
 				23F7B5B81F5958F400154DD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B3ACB6E2761332300284DD7 /* Build configuration list for PBXNativeTarget "CampaignBrowserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B3ACB6C2761332300284DD7 /* Debug */,
+				2B3ACB6D2761332300284DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
