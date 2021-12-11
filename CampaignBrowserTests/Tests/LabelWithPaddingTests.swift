@@ -10,25 +10,24 @@ import XCTest
 @testable import CampaignBrowser
 
 class LabelWithPaddingTests: XCTestCase {
-
+    var label : MockPadingLabel!
     override func setUpWithError() throws {
+        label = MockPadingLabel()
+        label.drawText(in: .zero)
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
+        label = nil
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     /**Test to check if label padding is applying on label*/
     func testLabelHasPadding(){
-        let label = MockPadingLabel()
-        label.draw(.zero)
         XCTAssertTrue(label.paadingIsBeingSet)
         
     }
     /**Test to check label has expected padding*/
     func testLabelHasExpectedPadding(){
-        let label = MockPadingLabel()
-        label.drawText(in: .zero)
         XCTAssertTrue(label.paddingLeft == 8 && label.paddingRight == 8)
         XCTAssertTrue(label.paddingTop == 0 && label.paddingBottom == 0)
         

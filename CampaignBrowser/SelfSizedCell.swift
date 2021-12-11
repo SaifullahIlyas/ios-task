@@ -10,26 +10,19 @@ import UIKit
 
 class SelfSizedCell : UICollectionViewCell {
     lazy var bgView = UIView()
-     lazy var width : NSLayoutConstraint = {
-         NSLayoutConstraint.init(item: bgView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: UIScreen.main.bounds.width )
-     }()
     private lazy var widthConstraint = contentView.widthAnchor.constraint(equalToConstant: 0)
     var isActive = false
-     override func awakeFromNib()  {
-         super.awakeFromNib()
-         
-        // bgView.backgroundColor = .black
-         bgView.translatesAutoresizingMaskIntoConstraints = false
-         contentView.insertSubview(bgView, at: 0)
-        bgView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-         bgView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-         bgView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-         bgView.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
-        contentView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        contentView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-       // contentView.updateConstraintsIfNeeded()
-         
-     }
+    override func awakeFromNib()  {
+        super.awakeFromNib()
+        bgView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.insertSubview(bgView, at: 0)
+        NSLayoutConstraint.activate([ bgView.topAnchor.constraint(equalTo: topAnchor),bgView.leftAnchor.constraint(equalTo: leftAnchor),bgView.rightAnchor.constraint(equalTo: rightAnchor),bgView.bottomAnchor.constraint(equalTo:bottomAnchor),contentView.centerXAnchor.constraint(equalTo: centerXAnchor),contentView.centerYAnchor.constraint(equalTo: centerYAnchor)])
+        
+        
+        
+        
+        
+    }
     override func updateConstraints() {
         widthConstraint.constant = superview?.bounds.width ?? 0
         widthConstraint.isActive = true

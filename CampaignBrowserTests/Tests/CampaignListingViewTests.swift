@@ -10,7 +10,7 @@ import XCTest
 import RxSwift
 @testable import CampaignBrowser
 var collectionView : CampaignListingView!
-class CampaignListingViewTests: XCTestCase {
+class CampaignListingViewTests: XCTestCase,NeedsSut,NeedsObservableImage {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,8 +26,8 @@ class CampaignListingViewTests: XCTestCase {
         }
         sut.loadView()
         collectionView = sut.typedView
-        let campaigns  = [CampaignListingView.Campaign(name: "hy i am title with one line hopefully", description: "Hy i am description.more detail is bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla", moodImage:getImage() )]
-        collectionView.display(campaigns: campaigns)
+        
+        collectionView.display(campaigns: getcampaigns())
         collectionView.layoutIfNeeded()
        
         guard let cell = collectionView.dataSource?.collectionView(collectionView, cellForItemAt: IndexPath(row: 0, section: 0)) as? CampaignCell else {
@@ -39,20 +39,10 @@ class CampaignListingViewTests: XCTestCase {
         let cellSubviewsHeight = cell.imageView.intrinsicContentSize.height + cell.nameLabel.intrinsicContentSize.height + cell.intrinsicContentSize.height
         
         XCTAssertTrue(contentViewHeight >= cellSubviewsHeight)
+    }
     
-           
-        
-        
-        
-        
-        
+    private func getcampaigns()->[CampaignListingView.Campaign] {
+        return [CampaignListingView.Campaign(name: "hy i am title with one line hopefully", description: "Hy i am description.more detail is bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla", moodImage:getImage() )]
     }
-    private func getImage()->Observable<UIImage>{
-        return Observable<UIImage>.just(UIImage(named: "image")!)
-    }
-    private func makeSut()->CampaignListingViewController? {
-      return  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "campaignListingViewControllerIDF") as? CampaignListingViewController
-    }
-
 }
 

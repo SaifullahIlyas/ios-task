@@ -6,13 +6,13 @@ import UIKit
  */
 @IBDesignable
 class LabelWithPadding: UILabel,Spaceable {
-    var paddingTop: CGFloat = 0
+   @IBInspectable var paddingTop: CGFloat = 0
     
-    var paddingBottom: CGFloat = 0
+    @IBInspectable  var paddingBottom: CGFloat = 0
     
-    var paddingLeft: CGFloat = 8
+    @IBInspectable var paddingLeft: CGFloat = 8
     
-    var paddingRight: CGFloat = 8
+    @IBInspectable  var paddingRight: CGFloat = 8
     
 
     override func drawText(in rect: CGRect) {

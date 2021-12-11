@@ -25,6 +25,7 @@
 		2B4E02C12763B4970055D081 /* Spaceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E02C02763B4970055D081 /* Spaceable.swift */; };
 		2B4E02C82763B5EB0055D081 /* LabelWithPaddingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E02C72763B5EB0055D081 /* LabelWithPaddingTests.swift */; };
 		2B4E02D32763D1350055D081 /* CampaignListingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4E02D22763D1350055D081 /* CampaignListingViewTests.swift */; };
+		2B630D2927647D99003F1A42 /* Test-Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B630D2827647D99003F1A42 /* Test-Protocols.swift */; };
 		A45F46515EAEB93AB89C7D5F /* Pods_CampaignBrowserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B6BEBA68EBB5501B43CE4C0 /* Pods_CampaignBrowserTests.framework */; };
 		B8B5F1F166845F0ECFBB5E7F /* Pods_CampaignBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE6F773D7D1702E9482B13D /* Pods_CampaignBrowser.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		2B4E02C02763B4970055D081 /* Spaceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceable.swift; sourceTree = "<group>"; };
 		2B4E02C72763B5EB0055D081 /* LabelWithPaddingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWithPaddingTests.swift; sourceTree = "<group>"; };
 		2B4E02D22763D1350055D081 /* CampaignListingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListingViewTests.swift; sourceTree = "<group>"; };
+		2B630D2827647D99003F1A42 /* Test-Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Test-Protocols.swift"; sourceTree = "<group>"; };
 		301FB4B5169EB837826683E1 /* Pods-CampaignBrowserTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CampaignBrowserTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CampaignBrowserTests/Pods-CampaignBrowserTests.debug.xcconfig"; sourceTree = "<group>"; };
 		47520166195A4003183C8D8A /* Pods-CampaignBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CampaignBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-CampaignBrowser/Pods-CampaignBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		69BB9137FB1375F9765517CD /* Pods-CampaignBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CampaignBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CampaignBrowserTests/Pods-CampaignBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		2B3ACB662761332300284DD7 /* CampaignBrowserTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B630D2727647D5E003F1A42 /* Protocols */,
 				2B3ACB722761345D00284DD7 /* Tests */,
 				2B3ACB692761332300284DD7 /* Info.plist */,
 			);
@@ -236,6 +239,14 @@
 				2B4E02C02763B4970055D081 /* Spaceable.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2B630D2727647D5E003F1A42 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2B630D2827647D99003F1A42 /* Test-Protocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3AB6449F1A7DCBF82BA822FD /* Frameworks */ = {
@@ -516,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B4E02D32763D1350055D081 /* CampaignListingViewTests.swift in Sources */,
+				2B630D2927647D99003F1A42 /* Test-Protocols.swift in Sources */,
 				2B3ACB77276134AD00284DD7 /* CampaignCellTests.swift in Sources */,
 				2B4E02C82763B5EB0055D081 /* LabelWithPaddingTests.swift in Sources */,
 			);

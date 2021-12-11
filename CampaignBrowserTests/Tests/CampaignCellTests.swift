@@ -11,7 +11,7 @@ import RxSwift
 
 @testable import CampaignBrowser
 
-class CampaignCellTests: XCTestCase {
+class CampaignCellTests: XCTestCase,NeedsSut,NeedsObservableImage,NeedsMultilinesString,CellIdentifier {
 
     var collectionView: CampaignListingView!
     override func setUpWithError() throws {
@@ -23,8 +23,8 @@ class CampaignCellTests: XCTestCase {
     }
     /**Test to check campain label should be of type SelfSizedCell*/
     func testCampaignCellIsTypeOfSelfSizedCell(){
-        collectionView = MockCollectionView.mockInit()
-       let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "campaignCell", for: IndexPath(row: 0, section: 0))
+        collectionView = MockCollectionView.mockInit(forCell: campaignCell)
+       let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: campaignCell, for: IndexPath(row: 0, section: 0))
       
         XCTAssert(cell is SelfSizedCell)
         
@@ -33,14 +33,7 @@ class CampaignCellTests: XCTestCase {
     }
     /**Test to check title label is max two line long*/
     func testTitlehasMaxHeightOfTwoLines() {
-        guard let sut = makeSut() else {
-            return
-        }
-        sut.loadView()
-        collectionView = sut.typedView
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"campaignCell" , for: IndexPath(row: 0, section: 0)) as? CampaignCell else {
-            return
-        }
+       let cell = getCampaignCell()
         cell.name = "line1"
         let nameLblHeigthWithLine1 = cell.nameLabel.intrinsicContentSize.height
         cell.name  = "line 1 \n line 2"
@@ -49,7 +42,7 @@ class CampaignCellTests: XCTestCase {
         cell.name = "line 1 \n line 2 \n line3"
         let nameLblHeigthWithLine3 = cell.nameLabel.intrinsicContentSize.height
         XCTAssertTrue(nameLblHeigthWithLine2 == nameLblHeigthWithLine3)
-        cell.name = "line1\nline2\nline3\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline\nnewline"
+        cell.name = buildStringWithNumberOf(lines: 50)
         let edgeCaseNameLblHeight  =  cell.nameLabel.intrinsicContentSize.height
 XCTAssertTrue(nameLblHeigthWithLine2 == edgeCaseNameLblHeight)
 //        XCTAssert((cell.nameLabel.calculateMaxLines(te) == 2) )
@@ -58,13 +51,7 @@ XCTAssertTrue(nameLblHeigthWithLine2 == edgeCaseNameLblHeight)
     }
     /**Test to check if label height grow with text size*/
     func testDescriptionLabelHeightIsTextDespendent(){
-        guard let sut = makeSut() else {
-            return
-        }
-        sut.loadView()
-        collectionView = sut.typedView
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"campaignCell" , for: IndexPath(row: 0, section: 0)) as? CampaignCell else {
-            return}
+        let cell = getCampaignCell()
         cell.descriptionText = "Line1"
         let descriptionLblHeightWithLine1 = cell.descriptionLabel.intrinsicContentSize.height
         cell.descriptionText = "Line1\nLine2"
@@ -77,32 +64,24 @@ XCTAssertTrue(nameLblHeigthWithLine2 == edgeCaseNameLblHeight)
         
     }
     func testToCheckIfImageViewHasExpectedRatio(){
-        guard let sut = makeSut() else {
-            return
-        }
-        sut.loadView()
-        collectionView = sut.typedView
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:"campaignCell" , for: IndexPath(row: 0, section: 0)) as? CampaignCell else {
-            return}
+        let cell = getCampaignCell()
         cell.moodImage = getImage()
         XCTAssertTrue(floor(cell.imageView.bounds.width) == floor(cell.imageView.bounds.height * (4/3)))
         
         
     }
-    private func getImage()->Observable<UIImage>{
-        return Observable<UIImage>.just(UIImage(named: "image")!)
-    }
-    /**Generate String based on inputed number*/
-    private func buildStringWithNumberOf(lines num : Int)->String{
-        var string = ""
-        for val in 0...num {
-         string += "Line\(val)\n"
+    
+    private func getCampaignCell()->CampaignCell {
+        guard let sut = makeSut() else {
+            fatalError()
         }
-        return string
+        sut.loadView()
+        collectionView = sut.typedView
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:campaignCell , for: IndexPath(row: 0, section: 0)) as? CampaignCell else {
+            return CampaignCell()}
+        return cell
     }
-    private func makeSut()->CampaignListingViewController? {
-      return  UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "campaignListingViewControllerIDF") as? CampaignListingViewController
-    }
+    
     
    
 }
@@ -110,9 +89,9 @@ XCTAssertTrue(nameLblHeigthWithLine2 == edgeCaseNameLblHeight)
 extension CampaignCellTests {
     class MockCollectionView : CampaignListingView {
         
-        class func mockInit()-> MockCollectionView {
+        class func mockInit(forCell cell : String)-> MockCollectionView {
             let collectionView = MockCollectionView.init(frame: CGRect(x: 0, y: 0, width: 400, height: 500), collectionViewLayout: UICollectionViewFlowLayout())
-            collectionView.register(CampaignCell.self, forCellWithReuseIdentifier: "campaignCell")
+            collectionView.register(CampaignCell.self, forCellWithReuseIdentifier: cell)
             return collectionView
         }
         override func dequeueReusableCell(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> UICollectionViewCell {
