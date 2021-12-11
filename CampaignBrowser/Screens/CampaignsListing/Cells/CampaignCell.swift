@@ -5,7 +5,7 @@ import RxSwift
 /**
  The cell which displays a campaign.
  */
-class CampaignCell: UICollectionViewCell {
+class CampaignCell: SelfSizedCell {
 
     private let disposeBag = DisposeBag()
 

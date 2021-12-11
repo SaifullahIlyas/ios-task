@@ -13,7 +13,13 @@ class CampaignListingViewController: UIViewController {
     private let imageService = ServiceLocator.instance.imageService
 
     @IBOutlet
-    private(set) weak var typedView: CampaignListingView!
+    private(set) weak var typedView: CampaignListingView!{
+        didSet{
+            guard let layout = typedView.collectionViewLayout as? UICollectionViewFlowLayout else{return}
+            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
